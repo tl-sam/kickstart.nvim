@@ -99,6 +99,8 @@ require('lazy').setup({
     end,
   },
 
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -106,7 +108,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -157,6 +159,20 @@ require('lazy').setup({
   },
 
   'pocco81/auto-save.nvim',
+
+  'christoomey/vim-tmux-navigator',
+
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened 
+    opts =   {
+      -- default
+      dir = vim.fn.expand(vim.fn.stdpath("state") .. "/sessions/"), -- directory where session files are saved
+      options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
+      pre_save = nil, -- a function to call before saving the session
+      save_empty = false, -- don't save if there are no open file buffers
+    }
+  }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -171,3 +187,6 @@ require('lazy').setup({
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
 }, {})
+
+vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "onedark"

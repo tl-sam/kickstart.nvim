@@ -33,4 +33,4 @@ require("auto-save").setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<leader>fs", ":ASToggle<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>fa", ":ASToggle<CR>", {})
