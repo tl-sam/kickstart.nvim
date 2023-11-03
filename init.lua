@@ -16,6 +16,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- fix cwd to open file path
+if vim.fn.isdirectory(vim.v.argv[3]) == 1 then
+  vim.api.nvim_set_current_dir(vim.v.argv[3])
+end
+
 require("myconf")
 
 
