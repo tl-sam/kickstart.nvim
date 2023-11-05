@@ -61,6 +61,8 @@ vim.keymap.set('n', '<leader>od', vim.diagnostic.setloclist, { desc = 'Open diag
 -- Quit all
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
+vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
+
 -- document existing key chains
 require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
@@ -72,4 +74,5 @@ require('which-key').register {
   ['<leader>s'] = { name = '[S]Session Quit', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = '[F]File search', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader><F5>'] = { name = '[F5]undotree', _ = 'which_key_ignore' },
 }
