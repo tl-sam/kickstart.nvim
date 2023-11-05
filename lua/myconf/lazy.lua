@@ -167,7 +167,7 @@ require('lazy').setup({
       build = ':TSUpdate',
     },
 
-    'pocco81/auto-save.nvim',
+    'okuuva/auto-save.nvim',
 
     'christoomey/vim-tmux-navigator',
 
