@@ -28,7 +28,19 @@ vim.opt.undofile = true
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 
-vim.opt.clipboard = "unnamedplus"
+if vim.loop.os_uname().release:match("WSL") then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
+    paste = {
+      ["+"] = { 'nvim_paste' },
+      ["*"] = { 'nvim_paste' },
+    },
+    cache_enabled = true
+  }
+end
+vim.o.clipboard = "unnamedplus"
+
 
 -- Enable break indent
 vim.opt.breakindent = true
