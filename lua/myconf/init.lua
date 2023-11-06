@@ -15,5 +15,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require("myconf.options")
 require("myconf.lazy")
 require("myconf.remap")
